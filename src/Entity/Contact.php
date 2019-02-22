@@ -68,6 +68,21 @@ class Contact
      */
     private $id_evenement;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel_1;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel_2;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel_3;
+
     public function __construct()
     {
         $this->organisation = new ArrayCollection();
@@ -208,6 +223,42 @@ class Contact
     public function setIdEvenement(?Evenement $id_evenement): self
     {
         $this->id_evenement = $id_evenement;
+
+        return $this;
+    }
+
+    public function getTel1(): ?int
+    {
+        return $this->tel_1;
+    }
+
+    public function setTel1(?int $tel_1): self
+    {
+        $this->tel_1 = $tel_1;
+
+        return $this;
+    }
+
+    public function getTel2(): ?int
+    {
+        return $this->tel_2;
+    }
+
+    public function setTel2(?int $tel_2): self
+    {
+        $this->tel_2 = $tel_2;
+
+        return $this;
+    }
+
+    public function getTel3(): ?int
+    {
+        return $this->tel_3;
+    }
+
+    public function setTel3(?int $tel_3): self
+    {
+        $this->tel_3 = $tel_3;
 
         return $this;
     }
