@@ -19,6 +19,9 @@ security:
             guard:
                 authenticators:
                     - App\Security\FormAuthenticator
+            logout:
+                path: /logout
+                target: /
 
             # activate different ways to authenticate
 
@@ -33,3 +36,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/lbr, roles: ROLE_USER }
+         #- { path: ^/, roles: ROLE_ADMIN }
