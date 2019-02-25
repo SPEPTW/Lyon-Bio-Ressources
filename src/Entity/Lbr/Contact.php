@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Lbr;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -54,17 +54,17 @@ class Contact
     private $statut;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\categorie", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lbr\Categorie", inversedBy="contacts")
      */
     private $id_categorie;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Organisation", inversedBy="contacts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Lbr\Organisation", inversedBy="contacts")
      */
     private $organisation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Evenement", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lbr\Evenement", inversedBy="contacts")
      */
     private $id_evenement;
 

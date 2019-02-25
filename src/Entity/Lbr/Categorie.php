@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Lbr;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -24,7 +24,7 @@ class Categorie
     private $type_categorie;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="id_categorie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="id_categorie")
      */
     private $contacts;
 

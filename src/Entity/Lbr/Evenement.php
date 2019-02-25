@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Lbr;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OrganisationRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EvenementRepository")
  */
-class Organisation
+class Evenement
 {
     /**
      * @ORM\Id()
@@ -24,17 +24,22 @@ class Organisation
     private $nom;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Description;
+    private $note;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Type;
+    private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Contact", mappedBy="organisation")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="id_evenement")
      */
     private $contacts;
 
@@ -60,26 +65,38 @@ class Organisation
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->Description;
+        return $this->date;
     }
 
-    public function setDescription(?string $Description): self
+    public function setDate(?\DateTimeInterface $date): self
     {
-        $this->Description = $Description;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getType(): ?int
+    public function getNote(): ?string
     {
-        return $this->Type;
+        return $this->note;
     }
 
-    public function setType(?int $Type): self
+    public function setNote(?string $note): self
     {
-        $this->Type = $Type;
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getImage(): ?int
+    {
+        return $this->image;
+    }
+
+    public function setImage(?int $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
@@ -96,7 +113,7 @@ class Organisation
     {
         if (!$this->contacts->contains($contact)) {
             $this->contacts[] = $contact;
-            $contact->addOrganisation($this);
+            $contact->setIdEvenement($this);
         }
 
         return $this;
@@ -106,7 +123,10 @@ class Organisation
     {
         if ($this->contacts->contains($contact)) {
             $this->contacts->removeElement($contact);
-            $contact->removeOrganisation($this);
+            // set the owning side to null (unless already changed)
+            if ($contact->getIdEvenement() === $this) {
+                $contact->setIdEvenement(null);
+            }
         }
 
         return $this;
