@@ -11,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categorie
 {
+
+    const CAT = [
+        'Producteur',
+        'Transformateur',
+    ];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,9 +24,9 @@ class Categorie
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $type_categorie;
+    private $titre;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="id_categorie")
@@ -38,14 +43,14 @@ class Categorie
         return $this->id;
     }
 
-    public function getTypeCategorie(): ?int
+    public function getTitre(): ?string
     {
-        return $this->type_categorie;
+        return $this->titre;
     }
 
-    public function setTypeCategorie(int $type_categorie): self
+    public function setTitre(string $titre): self
     {
-        $this->type_categorie = $type_categorie;
+        $this->titre = $titre;
 
         return $this;
     }
