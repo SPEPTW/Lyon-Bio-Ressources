@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Lbr\Categorie;
+use App\Entity\Lbr\Organisation;
 
 class ContactType extends AbstractType
 {
@@ -30,8 +31,18 @@ class ContactType extends AbstractType
                     return $cat->getTitre();
                 }
             ])
-            /* ->add('organisation')
-            ->add('evenement') */
+            ->add('organisation', EntityType::class, [
+                'class' => Organisation::class,
+                'choice_label' => function($cat) {
+                     return $cat->getNom();
+                }
+            ])
+            ->add('evenement', EntityType::class, [
+                'class' => Evenement::class,
+                'choice_label' => function($cat) {
+                     return $cat->getNom();
+                }
+            ]) 
 
 
             
