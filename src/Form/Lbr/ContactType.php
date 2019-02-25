@@ -34,6 +34,7 @@ class ContactType extends AbstractType
             ])
             ->add('organisation', EntityType::class, [
                 'class' => Organisation::class,
+                'multiple' => true,
                 'choice_label' => function($cat) {
                      return $cat->getNom();
                 }

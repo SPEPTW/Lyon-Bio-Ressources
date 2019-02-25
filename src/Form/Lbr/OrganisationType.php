@@ -15,7 +15,7 @@ class OrganisationType extends AbstractType
             ->add('nom')
             ->add('Description')
             ->add('Type')
-            ->add('contacts')
+            /* ->add('contacts') */
         ;
     }
 
