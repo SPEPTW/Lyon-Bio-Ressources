@@ -6,6 +6,8 @@ use App\Entity\Lbr\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Lbr\Categorie;
 
 class ContactType extends AbstractType
 {
@@ -22,9 +24,17 @@ class ContactType extends AbstractType
             ->add('tel_1')
             ->add('tel_2')
             ->add('tel_3')
-            ->add('id_categorie')
-            ->add('organisation')
-            ->add('id_evenement')
+            ->add('categorie', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => function($cat) {
+                    return $cat->getTitre();
+                }
+            ])
+            /* ->add('organisation')
+            ->add('evenement') */
+
+
+            
         ;
     }
 

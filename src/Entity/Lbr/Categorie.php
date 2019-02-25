@@ -12,10 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Categorie
 {
 
-    const CAT = [
-        'Producteur',
-        'Transformateur',
-    ];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -85,4 +81,4 @@ class Categorie
 
         return $this;
     }
-}
+ }

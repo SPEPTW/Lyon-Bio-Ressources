@@ -4,7 +4,7 @@ namespace App\Controller\Lbr;
 
 use App\Entity\Lbr\Organisation;
 use App\Form\Lbr\OrganisationType;
-use App\Repository\OrganisationRepository;
+use App\Repository\Lbr\OrganisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

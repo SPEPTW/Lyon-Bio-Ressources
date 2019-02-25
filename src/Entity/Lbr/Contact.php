@@ -56,7 +56,7 @@ class Contact
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Lbr\Categorie", inversedBy="contacts")
      */
-    private $id_categorie;
+    private $categorie;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Lbr\Organisation", inversedBy="contacts")
@@ -66,7 +66,7 @@ class Contact
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Lbr\Evenement", inversedBy="contacts")
      */
-    private $id_evenement;
+    private $evenement;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -177,14 +177,14 @@ class Contact
         return $this;
     }
 
-    public function getIdCategorie(): ?categorie
+    public function getCategorie(): ?categorie
     {
-        return $this->id_categorie;
+        return $this->categorie;
     }
 
-    public function setIdCategorie(?categorie $id_categorie): self
+    public function setCategorie(?categorie $categorie): self
     {
-        $this->id_categorie = $id_categorie;
+        $this->categorie = $categorie;
 
         return $this;
     }
@@ -215,14 +215,14 @@ class Contact
         return $this;
     }
 
-    public function getIdEvenement(): ?Evenement
+    public function getEvenement(): ?Evenement
     {
         return $this->id_evenement;
     }
 
-    public function setIdEvenement(?Evenement $id_evenement): self
+    public function setEvenement(?Evenement $evenement): self
     {
-        $this->id_evenement = $id_evenement;
+        $this->evenement = $evenement;
 
         return $this;
     }
