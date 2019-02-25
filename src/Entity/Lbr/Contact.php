@@ -217,7 +217,7 @@ class Contact
 
     public function getEvenement(): ?Evenement
     {
-        return $this->id_evenement;
+        return $this->evenement;
     }
 
     public function setEvenement(?Evenement $evenement): self

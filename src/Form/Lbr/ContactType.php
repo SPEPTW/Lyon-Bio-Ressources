@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Lbr\Categorie;
 use App\Entity\Lbr\Organisation;
+use App\Entity\Lbr\Evenement;
 
 class ContactType extends AbstractType
 {
