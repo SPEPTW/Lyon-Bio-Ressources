@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contact.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <th>Rue</th>
+                <td>{{ contact.rue }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ contact.ville }}</td>
+            </tr>
+            <tr>
+                <th>Code_postale</th>
+                <td>{{ contact.codePostale }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ contact.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Tel_1</th>
+                <td>{{ contact.tel1 }}</td>
+            </tr>
+            <tr>
+                <th>Tel_2</th>
+                <td>{{ contact.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Tel_3</th>
+                <td>{{ contact.tel3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lbr_contact_index') }}">back to list</a>
+
+    <a href="{{ path('lbr_contact_edit', {'id': contact.id}) }}">edit</a>
+
+    {{ include('lbr_contact/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <h1>Contact index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Rue</th>
+                <th>Ville</th>
+                <th>Code_postale</th>
+                <th>Statut</th>
+                <th>Tel_1</th>
+                <th>Tel_2</th>
+                <th>Tel_3</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.prenom }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.rue }}</td>
+                <td>{{ contact.ville }}</td>
+                <td>{{ contact.codePostale }}</td>
+                <td>{{ contact.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ contact.tel1 }}</td>
+                <td>{{ contact.tel2 }}</td>
+                <td>{{ contact.tel3 }}</td>
+                <td>
+                    <a href="{{ path('lbr_contact_show', {'id': contact.id}) }}">show</a>
+                    <a href="{{ path('lbr_contact_edit', {'id': contact.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lbr_contact_new') }}">Create new</a>
+{% endblock %}
