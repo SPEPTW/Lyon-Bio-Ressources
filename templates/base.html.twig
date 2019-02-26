@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Lyon Bio Ressource{% endblock %}</title>
-        {% block stylesheets %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-            crossorigin="anonymous">
-        <link href="css/main.css" type="text/css" rel="stylesheet">
-        {% endblock %}
-    </head>
-    <body>
+<div class="row pt-4">
+
             {{ include('_partials/_header.php') }}
 
             {{ include('_partials/_sidebar.php') }}
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <div class="d-inline-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     {% block body %}{% endblock %}
             </div>
         </main>
-    </div>
+
+        {{ include('_partials/_footer.php') }}
 </div>
-            {{ include('_partials/_footer.php') }}
-
-<!-- Icons -->
-<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-<script>
-    feather.replace()
-</script>   
-
         {% block javascripts %}{% endblock %}
     </body>
 </html>
