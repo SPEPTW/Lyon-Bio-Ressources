@@ -1,23 +1,39 @@
-<section id="sidebar">
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
 
-    <h4><a href="{{ path('lbr_contact_index') }}">Contacts</a></h4>
-    <ul class="list-group">
-        <li class="list-group-item active"><a href="{{ path('lbr_contact_new') }}">Nouveau contact</a></li>
-    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('lbr_contact_index') }}">
+                            <span data-feather="meh"></span>
+                            Contacts
+                        </a>
+                    </li>
 
-    <h4><a href="{{ path('lbr_organisation_index') }}">Organisation</a></h4>
-    <ul class="list-group">
-        <li class="list-group-item active"><a href="{{ path('lbr_organisation_new') }}">Nouvelle organisation</a></li>
-    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('lbr_organisation_index') }}">
+                            <span data-feather="meh"></span>
+                            Organisation
+                        </a>
+                    </li>
 
-    <h4><a href="{{ path('lbr_evenement_index') }}">Evénements</a></h4>
-    <ul class="list-group">
-        <li class="list-group-item active"><a href="{{ path('lbr_evenement_new') }}">Nouvel Evénement</a></li>
-    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('lbr_evenement_index') }}">
+                            <span data-feather="meh"></span>
+                            Evénements
+                        </a>
+                    </li>
 
-    <h4><a href="{{ path('lbr_categorie_index') }}">Catégories</a></h4>
-    <ul class="list-group">
-        <li class="list-group-item active"><a href="{{ path('lbr_categorie_new') }}">Nouvelle catégorie</a></li>
-    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('lbr_categorie_index') }}">
+                            <span data-feather="meh"></span>
+                            Catégories
+                        </a>
+                    </li>
 
-</section> 
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
