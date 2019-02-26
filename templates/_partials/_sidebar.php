@@ -6,28 +6,28 @@
 
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ path('lbr_contact_index') }}">
-                            <span data-feather="meh"></span>
+                            <span data-feather="users"></span>
                             Contacts
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ path('lbr_organisation_index') }}">
-                            <span data-feather="meh"></span>
+                            <span data-feather="target"></span>
                             Organisation
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ path('lbr_evenement_index') }}">
-                            <span data-feather="meh"></span>
+                            <span data-feather="shopping-bag"></span>
                             Evénements
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ path('lbr_categorie_index') }}">
-                            <span data-feather="meh"></span>
+                            <span data-feather="tag"></span>
                             Catégories
                         </a>
                     </li>
@@ -35,5 +35,4 @@
                 </ul>
             </div>
         </nav>
-    </div>
-</div>
+ 
