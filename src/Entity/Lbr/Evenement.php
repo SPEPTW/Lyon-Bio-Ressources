@@ -36,12 +36,12 @@ class Evenement
     private $note;
 
 
-    /*@ORM\Column(type="string", nullable=true)
-     @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName", size="imageSize")
+    /*
+     @Vich\UploadableField(mapping="evenement_image", fileNameProperty="imageName", size="imageSize")
     * 
     * @var File|null
     */
-   private $image;
+   private $imageFile;
 
    /**
     * @ORM\Column(type="string", length=255)
@@ -108,17 +108,47 @@ class Evenement
         return $this;
     }
 
-    public function getImage(): ?string
+
+
+
+     /**
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
     {
-        return $this->image;
+        $this->imageFile = $imageFile;
+
     }
 
-    public function setImage(?string $image): self
+    public function getImageFile(): ?File
     {
-        $this->image = $image;
-
-        return $this;
+        return $this->imageFile;
     }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+    
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+
+
+
 
     /**
      * @return Collection|Contact[]
