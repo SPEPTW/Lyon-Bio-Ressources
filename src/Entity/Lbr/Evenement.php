@@ -5,15 +5,17 @@ namespace App\Entity\Lbr;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Lbr\EvenementRepository")
+* @Vich\Uploadable
  */
 class Evenement
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -34,9 +36,13 @@ class Evenement
     private $note;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $image;
+
+
+
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="id_evenement")
@@ -89,12 +95,12 @@ class Evenement
         return $this;
     }
 
-    public function getImage(): ?int
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
-    public function setImage(?int $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 

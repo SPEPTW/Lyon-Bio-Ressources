@@ -15,7 +15,9 @@ class EvenementType extends AbstractType
             ->add('nom')
             ->add('date')
             ->add('note')
-            ->add('image')
+            ->add('image', FileType::class, [
+                'required' => false
+            ])
         ;
     }
 
