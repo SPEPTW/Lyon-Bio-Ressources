@@ -35,14 +35,27 @@ class Evenement
      */
     private $note;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $image;
 
+    /*@ORM\Column(type="string", nullable=true)
+     @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName", size="imageSize")
+    * 
+    * @var File|null
+    */
+   private $image;
 
+   /**
+    * @ORM\Column(type="string", length=255)
+    *
+    * @var string
+    */
+   private $imageName;
 
-
+   /**
+    * @ORM\Column(type="integer")
+    *
+    * @var integer
+    */
+   private $imageSize;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="id_evenement")
