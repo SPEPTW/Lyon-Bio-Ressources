@@ -23,7 +23,7 @@
                 <td>{{ evenement.nom }}</td>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ evenement.note }}</td>
-                <td>{{ evenement.image }}</td>
+                <td>{{ evenement.imageFile }}</td>
                 <td>
                     <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}">show</a>
                     <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}">edit</a>
