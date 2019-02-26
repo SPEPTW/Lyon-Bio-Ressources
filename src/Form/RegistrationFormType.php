@@ -16,8 +16,8 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', null, [
-                'label' => 'Nom d\'utilisateur',
-                'empty_data' => 'Nom d\'utilisateur ',
+                // 'label' => 'Nom d\'utilisateur',
+                'label' => 'Nom d\'utilisateur ',
                 'required' => true,
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -25,6 +25,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'required' => true,
+                'label' => 'Mot de passe ',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un mot de passe',
