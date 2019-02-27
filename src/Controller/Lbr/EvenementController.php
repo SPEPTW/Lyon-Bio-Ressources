@@ -35,6 +35,21 @@ class EvenementController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+         
+            
+        $file = $request->files->get('evenement')['image'];
+        
+        $uploads_directory = $this->getParameter('uploads_directory');
+
+        $filename = md5(uniqId()) . '.' . $file->guessExtension();
+
+        $file->move(
+            $uploads_directory,
+            $filename
+        );
+
+        $post = $evenement->setImage($filename);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($evenement);
             $entityManager->flush();

@@ -34,7 +34,7 @@ class Evenement
     private $note;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $image;
 
@@ -89,12 +89,12 @@ class Evenement
         return $this;
     }
 
-    public function getImage(): ?int
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
-    public function setImage(?int $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
