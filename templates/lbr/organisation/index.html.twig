@@ -3,8 +3,12 @@
 {% block title %}Organisation index{% endblock %}
 
 {% block body %}
-    <h1>Organisation index</h1>
+   
+        
 
+        <h1>Organisation</h1>
+
+ 
     <table class="table">
         <thead>
             <tr>
@@ -23,6 +27,7 @@
                 <td>{{ organisation.Description }}</td>
                 <td>{{ organisation.Type }}</td>
                 <td>
+
                     <a href="{{ path('lbr_organisation_show', {'id': organisation.id}) }}">show</a>
                     <a href="{{ path('lbr_organisation_edit', {'id': organisation.id}) }}">edit</a>
                 </td>
