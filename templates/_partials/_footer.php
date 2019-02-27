@@ -1,8 +1,8 @@
 <footer>
 
     <div>
-        <a href="https://www.linkedin.com/company/lyon-bio-ressources/?originalSubdomain=fr" target="_blank"><img src="..\images\linkedin.png" alt="linkedin" height="42" width="42"></a>
-        <a href="https://www.facebook.com/lyonbioressources/" target="_blank"><img src="images\facebook.png" alt="facebook" height="42" width="42"></a>
+        <a href="https://www.linkedin.com/company/lyon-bio-ressources/?originalSubdomain=fr" target="_blank"><img src="{{ asset('dist/img/linkedin.png') }}" alt="linkedin" height="42" width="42"></a>
+        <a href="https://www.facebook.com/lyonbioressources/" target="_blank"><img src="{{ asset('dist/img/facebook.png') }}" alt="facebook" height="42" width="42"></a>
     </div>
 
 
@@ -18,6 +18,6 @@
 
 </footer>
 
-    </body>
+</body>
 
 </html> 
