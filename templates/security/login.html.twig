@@ -1,8 +1,17 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}Se connecter{% endblock %}
-
-{% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>Login Lyon Bio Ressources</title>
+    {% block stylesheets %}
+    <!--     Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <!-- CSS -->
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    {% endblock %}
+</head>
 
 <div class="text-left">
     <div class="container">
@@ -57,4 +66,3 @@ a.type = 'text';
 a.type = 'password';
 }
 } #}
-{% endblock %}
