@@ -7,9 +7,8 @@
                     <span data-feather="users"></span>
                     Contacts
                 </a>
-                <a href="{{ path('lbr_organisation_new') }}">Create new</a>
-              
             </li>
+
 
             <li class="nav-item mt-4">
                 <a class="nav-link active text-success" href="{{ path('lbr_organisation_index') }}">
