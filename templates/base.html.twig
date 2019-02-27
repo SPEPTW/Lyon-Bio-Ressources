@@ -1,17 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Lyon Bio Ressource{% endblock %}</title>
+    {% block stylesheets %}
+    <!--     Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <!-- CSS -->
+    <link href="{{ asset('public/dist/css/styles.css') }}" type="text/css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+
             {{ include('_partials/_header.php') }}
 
-<div class="containeur-fluid">
-    <div class="row pt-5">
-
-
+<div class="container-fluid">
+<div class="row">
             {{ include('_partials/_sidebar.php') }}
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-4 px-4">
 
-                    {% block body %}{% endblock %}
-</main>
+            {% block body %}{% endblock %}
 
-        {{ include('_partials/_footer.php') }}
-    </div>
+        </main>
 </div>
+</div>
+        {{ include('_partials/_footer.php') }}
+
         {% block javascripts %}{% endblock %}
