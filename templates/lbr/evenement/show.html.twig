@@ -30,9 +30,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('lbr_evenement_index') }}">back to list</a>
+   
+    <button type="btn" class="btn btn-primary"><a href="{{ path('lbr_evenement_index') }}">Retour à la liste</a></button>
 
-    <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}">edit</a>
+    <button type="btn" class="btn btn-warning"><a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}">Editer</button>
 
     {{ include('lbr/evenement/_delete_form.html.twig') }}
 {% endblock %}
