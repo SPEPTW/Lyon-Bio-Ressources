@@ -4,36 +4,44 @@
 
 {% block body %}
     <h1>Evenement</h1>
-
+            
+                <div class="col-6 .d-inline flex">
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ evenement.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ evenement.nom }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ evenement.note }}</td>
-            </tr>
-            <tr>
+            
+               
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ evenement.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Note</th>
+                        <td>{{ evenement.note }}</td>
+                    </tr>
+                    <tr>
+
+           
+            </div>
+  
                 <th>Image</th>
+                <div class="col-6 .d- inline-flex"> 
                 <td><img class="img-responsive w-50" src="{{asset(evenement.image)}}"></td>
             </tr>
+
+           
+           
         </tbody>
     </table>
-
+        </div>
+           
    
-    <button type="btn" class="btn btn-primary"><a href="{{ path('lbr_evenement_index') }}">Retour à la liste</a></button>
+    <a href="{{ path('lbr_evenement_index') }}"><span class="text-white"><button type="btn" class="btn btn-primary">Retour à la liste</span></button></a>
 
-    <button type="btn" class="btn btn-warning"><a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}">Editer</button>
+    <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}"><button type="btn" class="btn btn-warning"><span class="text-white">Editer</span></button></a><hr>
 
     {{ include('lbr/evenement/_delete_form.html.twig') }}
 {% endblock %}

@@ -6,28 +6,28 @@
     <h1>Evenement index</h1>
 
     <table class="table">
-        <thead>
+        <thead class="thead-light">
             <tr>
-                <th>Id</th>
+            
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Note</th>
-                <th>Image</th>
+                
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for evenement in evenements %}
             <tr>
-                <td>{{ evenement.id }}</td>
+                
                 <td>{{ evenement.nom }}</td>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ evenement.note }}</td>
-                <td>{{ evenement.image }}</td>
+                
                 <td>
-                    <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}">show</a>
+                    <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}"><button type="button" class="btn btn-primary"><span class="text-white">Voir</span></button></a>
                     
-                    <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}">edit</a>
+                    <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}"><button type="button" class="btn btn-warning"><span class="text-white">Editer</span></button></a>
                 </td>
             </tr>
         {% else %}
@@ -38,5 +38,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('lbr_evenement_new') }}">Create new</a>
+     <button type="button" class="btn btn-success"><a href="{{ path('lbr_evenement_new') }}"><span class="text-white">Ajouter un nouvel Evement</a></span></button>
 {% endblock %}
+
