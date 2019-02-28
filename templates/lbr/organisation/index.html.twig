@@ -5,20 +5,27 @@
 {% block body %}
    
         
+
+        <h1>Organisation</h1>
+
 <div class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col-12 flex-column mt-5">
-
+            
                 <h1>Organisation</h1>
-
+            
             </div>
         </div>
     </div>
 </div>
 
-        
 
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex-column mt-5">
 
     <table class="table table-striped">
         <thead>
@@ -30,6 +37,12 @@
                 <th>actions</th>
             </tr>
         </thead>
+
+            </div>
+        </div>
+    </div>
+</div>
+
         <tbody>
         {% for organisation in organisations %}
             <tr>
@@ -50,5 +63,37 @@
         {% endfor %}
         </tbody>
     </table>
+
+
+
+
+<body>
+
+    <header>
+        <div class="menu open"></div>
+        <div class="inside">
+            <nav>
+                <ul>
+                    <li>HOME</li>
+                    <li>SHOP</li>
+                    <li>BLOG</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+    </main>
+
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+
+</body>
+
+
+
+
+
     <a href="{{ path('lbr_organisation_new') }}">Create new</a>
 {% endblock %}
+
