@@ -13,9 +13,7 @@ class OrganisationType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('Description', 'text', [
-                'max' => 60
-            ])
+            ->add('Description')          
             ->add('Type')
             /* ->add('contacts') */
         ;
@@ -28,3 +26,9 @@ class OrganisationType extends AbstractType
         ]);
     }
 }
+
+
+
+
+//, 'text', [
+// 'max' => 60]
