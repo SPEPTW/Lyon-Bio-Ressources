@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Evenement{% endblock %}
+{% block title %}Editer Evenement{% endblock %}
 
 {% block body %}
     
 
-                <h1>Edit Evenement</h1>
+    {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}
+                <h1>Editer Evenement</h1>
 
 
     {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}

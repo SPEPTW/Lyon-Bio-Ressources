@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Evenement index{% endblock %}
+{% block title %}Liste Evenement{% endblock %}
 
 {% block body %}
-    
 
-          <h1>Evenement index</h1>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex-column">
+
+                <h1>Liste Evenement</h1>
 
 
     <table class="table">
@@ -33,13 +37,14 @@
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+        <tr>
+            <td colspan="6">Aucun Evenement</td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-     <button type="button" class="btn btn-success"><a href="{{ path('lbr_evenement_new') }}"><span class="text-white">Ajouter un Evenement</a></span></button>
+<a href="{{ path('lbr_evenement_new') }}"><button type="button" class="btn btn-success">Ajouter
+        un évenement</button></a>
+
 {% endblock %}
-
