@@ -26,9 +26,3 @@ class OrganisationType extends AbstractType
         ]);
     }
 }
-
-
-
-
-//, 'text', [
-// 'max' => 60]

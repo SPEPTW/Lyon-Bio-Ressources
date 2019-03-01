@@ -4,17 +4,8 @@
 
 {% block body %}
     
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 flex-column mt-5">
 
-                <h1>Evenement index</h1>
-
-            </div>
-        </div>
-    </div>
-</div>
+          <h1>Evenement index</h1>
 
 
     <table class="table">
@@ -24,7 +15,6 @@
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Note</th>
-                
                 <th>actions</th>
             </tr>
         </thead>
@@ -34,7 +24,7 @@
                 
                 <td>{{ evenement.nom }}</td>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ evenement.note }}</td>
+                <td>{{ evenement.note|length > 50 ? evenement.Note|slice(0, 50) ~ '...' : evenement.Note }}</td>
                 
                 <td>
                     <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}"><button type="button" class="btn btn-primary"><span class="text-white">Voir</span></button></a>

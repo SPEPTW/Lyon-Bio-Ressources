@@ -4,23 +4,14 @@
 
 {% block body %}
     
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 flex-column mt-5">
 
-    {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}
                 <h1>Edit Evenement</h1>
 
-            </div>
-        </div>
-    </div>
-</div>
 
     {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}
 
     
-    <button type="button" class="btn btn-primary"><a href="{{ path('lbr_evenement_index') }}"><span class="text-dark"><strong>Retour à la liste</strong></a></button>
+    <button type="button" class="btn btn-primary"><a href="{{ path('lbr_evenement_index') }}"><span class="text-light">Retour à la liste</a></button>
 
     {{ include('lbr/evenement/_delete_form.html.twig') }}
 {% endblock %}
