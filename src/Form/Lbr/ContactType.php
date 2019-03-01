@@ -27,19 +27,22 @@ class ContactType extends AbstractType
             ->add('tel_2')
             ->add('tel_3')
             ->add('categorie', EntityType::class, [
+                'required' => false,
                 'class' => Categorie::class,
                 'choice_label' => function($cat) {
                     return $cat->getTitre();
                 }
             ])
             ->add('organisation', EntityType::class, [
+                'required' => false,
                 'class' => Organisation::class,
-                'multiple' => true,
+        
                 'choice_label' => function($cat) {
                      return $cat->getNom();
                 }
             ])
             ->add('evenement', EntityType::class, [
+                'required' => false,
                 'class' => Evenement::class,
                 'choice_label' => function($cat) {
                      return $cat->getNom();
