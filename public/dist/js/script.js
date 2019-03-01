@@ -7,7 +7,12 @@ $('#menu').on('click', function () {
 });
 
 
-
+/* Data Table */
+$(document).ready(function () {
+    $('#example').DataTable({
+        'order': [[1, 'asc']]
+} );
+});
 
 /* $(function () {
     var availableTags = [

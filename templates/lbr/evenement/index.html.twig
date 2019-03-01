@@ -3,7 +3,7 @@
 {% block title %}Liste Evenement{% endblock %}
 
 {% block body %}
-    
+
 <div class="container-fluid">
     <div class="container">
         <div class="row">
@@ -17,40 +17,44 @@
 </div>
 
 
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-            
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Note</th>
-                
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Note</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
         {% for evenement in evenements %}
-            <tr>
-                
-                <td>{{ evenement.nom }}</td>
-                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ evenement.note }}</td>
-                
-                <td>
-                    <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}"><button type="button" class="btn btn-primary"><span class="text-white">Voir</span></button></a>
-                    
-                    <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}"><button type="button" class="btn btn-warning"><span class="text-white">Editer</span></button></a>
-                </td>
-            </tr>
+        <tr>
+
+            <td>{{ evenement.nom }}</td>
+
+            <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }} </td>
+            
+            <td>{{ evenement.note }}</td>
+
+            <td>
+                <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}"><button type="button" class="btn btn-primary"><span
+                            class="text-white">Voir</span></button></a>
+
+                <a href="{{ path('lbr_evenement_edit', {'id': evenement.id}) }}"><button type="button" class="btn btn-warning"><span
+                            class="text-white">Editer</span></button></a>
+            </td>
+        </tr>
         {% else %}
-            <tr>
-                <td colspan="6">Aucun Evenement</td>
-            </tr>
+        <tr>
+            <td colspan="6">Aucun Evenement</td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
 <a href="{{ path('lbr_evenement_new') }}"><button type="button" class="btn btn-success">Ajouter
-un évenement</button></a>
-{% endblock %}
+        un évenement</button></a>
 
+{% endblock %}
