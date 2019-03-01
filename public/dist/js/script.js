@@ -9,9 +9,26 @@ $('#menu').on('click', function () {
 
 /* Data Table */
 $(document).ready(function () {
-    $('#example').DataTable({
+    $('#tablecontact').DataTable({
         'order': [[1, 'asc']]
 } );
+    $('#tablecategorie').DataTable({
+        'order': [
+            [1, 'asc']
+        ]
+    });
+
+    $('#tableorganisation').DataTable({
+        'order': [
+            [1, 'asc']
+        ]
+    });
+
+     $('#tableevenement').DataTable({
+         'order': [
+             [1, 'asc']
+         ]
+     });
 });
 
 /* $(function () {
