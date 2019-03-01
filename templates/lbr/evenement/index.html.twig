@@ -23,7 +23,6 @@
 
             <th>Nom</th>
             <th>Date</th>
-            <th>Note</th>
             <th>actions</th>
         </tr>
     </thead>
@@ -36,8 +35,6 @@
 
             <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }} </td>
             
-            <td>{{ evenement.note }}</td>
-
             <td>
                 <a href="{{ path('lbr_evenement_show', {'id': evenement.id}) }}"><button type="button" class="btn btn-primary"><span
                             class="text-white">Voir</span></button></a>

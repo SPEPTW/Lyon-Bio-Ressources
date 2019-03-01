@@ -1,4 +1,3 @@
-
 /* Menu */
 
 $('#menu').on('click', function () {
@@ -8,10 +7,13 @@ $('#menu').on('click', function () {
 
 
 /* Data Table */
+
 $(document).ready(function () {
     $('#tablecontact').DataTable({
-        'order': [[1, 'asc']]
-} );
+        'order': [
+            [1, 'asc']
+        ]
+    });
     $('#tablecategorie').DataTable({
         'order': [
             [1, 'asc']
@@ -24,12 +26,18 @@ $(document).ready(function () {
         ]
     });
 
-     $('#tableevenement').DataTable({
-         'order': [
-             [1, 'asc']
-         ]
-     });
+    $('#tableevenement').DataTable({
+        'order': [
+            [1, 'asc']
+        ]
+    });
+
+    
+    $('#evenement_note').summernote();
+    
 });
+
+
 
 /* $(function () {
     var availableTags = [
