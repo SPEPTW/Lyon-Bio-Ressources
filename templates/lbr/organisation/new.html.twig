@@ -3,9 +3,13 @@
 {% block title %}New Organisation{% endblock %}
 
 {% block body %}
-    <h1>Create new Organisation</h1>
+
+
+        <h1>Creat new organisation</h1>
+
 
     {{ include('lbr/organisation/_form.html.twig') }}
 
-    <a href="{{ path('lbr_organisation_index') }}">back to list</a>
+<a href="{{ path('lbr_organisation_index') }}"><button type="button" class="btn btn-secondary"><span class="text-dark"><span
+                class="text-white">Retour à la liste</span></button></a>
 {% endblock %}
