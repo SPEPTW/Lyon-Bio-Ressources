@@ -11,20 +11,22 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ organisation.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
                 <td>{{ organisation.nom }}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ organisation.Description }}</td>
+                <td>{{ organisation.description }}</td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ organisation.Type }}</td>
+                <th>Type de Catégorie</th>
+                <td>
+                    {% if organisation.categorie %}
+                        {{ organisation.categorie.titre }}
+                    {% else %}
+                        <em>Cette organisation n'a pas encore de catégorie.</em>
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>
@@ -32,8 +34,8 @@
 <a href="{{ path('lbr_organisation_index') }}"><span class="text-white"><button type="btn" class="btn btn-primary">Retour
             à la liste</span></button></a>
 
-<a href="{{ path('lbr_organisation_edit', {'id': organisation.id}) }}"><button type="btn" class="btn btn-warning"><span class="text-white">Editer</span></button></a>
-<hr>
+<a href="{{ path('lbr_organisation_edit', {'id': organisation.id}) }}"><button type="btn" class="btn btn-warning text-white my-2">Editer</button></a>
+
 
 
     {{ include('lbr/organisation/_delete_form.html.twig') }}
