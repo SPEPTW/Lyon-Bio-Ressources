@@ -14,12 +14,12 @@
     {% endblock %}
 </head>
 
-<body >
+<body>
 
             {{ include('_partials/_header.php') }}
 
 <div class="container-fluid offset-top">
-<div class="row">
+    <div class="row">
     
             {{ include('_partials/_sidebar.php') }}
 
@@ -28,7 +28,8 @@
             {% block body %}{% endblock %}
 
         </main>
-</div>
+        
+    </div>
 </div>
         {{ include('_partials/_footer.php') }}
 

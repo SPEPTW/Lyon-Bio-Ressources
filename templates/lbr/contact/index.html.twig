@@ -15,56 +15,57 @@
         </div>
     </div>
 </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Organisation</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Téléphone</th>
-                <th>Email</th>
-                <th>Ville</th>
-                <th>Statut</th>
-                
 
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contact in contacts %}
-            <tr>
-              
-                <td>
-
-                    {% for org in contact.organisation %}
-                        <a href="{{ path('lbr_organisation_show', { 'id': org.id }) }}"><span class="badge badge-primary">{{ org.nom }}</span></a>
-                    
-                        {% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                
-                
-                </td>
-                <td>{{ contact.nom }}</td>
-                <td>{{ contact.prenom }}</td>
-                <td>{{ contact.tel1 }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.ville }}</td>
-                <td>{{ contact.statut ? 'Yes' : 'No' }}</td>
-                
-
-                <td>
-                    <a href="{{ path('lbr_contact_show', {'id': contact.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
-                    <a href="{{ path('lbr_contact_edit', {'id': contact.id}) }}"><button type="button" class="btn btn-warning text-white">Editer</button></a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">Aucun contact</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('lbr_contact_new') }}"><button type="button" class="btn btn-success">Creer un Contact</button></a>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Organisation</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Ville</th>
+            <th>Statut</th>
+            <th>actions</th>
+        </tr>
+    </thead>
     
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+
+            <td>
+
+                {% for org in contact.organisation %}
+                <a href="{{ path('lbr_organisation_show', { 'id': org.id }) }}"><span class="badge badge-primary">{{
+                        org.nom }}</span></a>
+
+                {% if not loop.last %}, {% endif %}
+                {% endfor %}
+
+
+            </td>
+            <td>{{ contact.nom }}</td>
+            <td>{{ contact.prenom }}</td>
+            <td>{{ contact.tel1 }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.ville }}</td>
+            <td>{{ contact.statut ? 'Yes' : 'No' }}</td>
+
+
+            <td>
+                <a href="{{ path('lbr_contact_show', {'id': contact.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+                <a href="{{ path('lbr_contact_edit', {'id': contact.id}) }}"><button type="button" class="btn btn-warning text-white">Editer</button></a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="12">Aucun contact</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('lbr_contact_new') }}"><button type="button" class="btn btn-success">Creer un Contact</button></a>
+
 {% endblock %}
