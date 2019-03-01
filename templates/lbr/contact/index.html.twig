@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<table class="table">
+<table id="example"class="table table-striped table-bordered display">
     <thead class="thead-light">
         <tr>
             <th>Organisation</th>
@@ -34,18 +34,18 @@
         {% for contact in contacts %}
         <tr>
 
-            <td>
+<td>
 
-                {% for org in contact.organisation %}
-                <a href="{{ path('lbr_organisation_show', { 'id': org.id }) }}"><span class="badge badge-primary">{{
-                        org.nom }}</span></a>
+    {% for org in contact.organisation %}
+    <a href="{{ path('lbr_organisation_show', { 'id': org.id }) }}"><span class="badge badge-primary">{{
+            org.nom }}</span></a>
 
-                {% if not loop.last %}, {% endif %}
-                {% endfor %}
+    {% if not loop.last %}, {% endif %}
+    {% endfor %}
 
 
-            </td>
-            
+</td>
+
             <td>{{ contact.nom }}</td>
             <td>{{ contact.prenom }}</td>
             <td>{{ contact.tel1 }}</td>
