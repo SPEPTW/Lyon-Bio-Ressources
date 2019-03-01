@@ -1,9 +1,9 @@
-<footer class="blog-footer mt-auto py-3">
+<!-- <footer class="blog-footer mt-auto py-3">
     <div class="container">
         <a href="https://www.linkedin.com/company/lyon-bio-ressources/?originalSubdomain=fr" target="_blank"><img src="{{ asset('dist/img/linkedin.png') }}" alt="linkedin" height="42" width="42"></a>
         <a href="https://www.facebook.com/lyonbioressources/" target="_blank"><img src="{{ asset('dist/img/facebook.png') }}" alt="facebook" height="42" width="42"></a>
     </div>
-</footer>
+</footer> -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!--   Javascript -->
-<script src="public/dist/js/script.js"></script>
+<script src={{ asset('dist/js/script.js') }}></script>
 </body>
 
 </html> 
