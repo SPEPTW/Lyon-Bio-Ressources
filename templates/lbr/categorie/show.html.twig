@@ -21,8 +21,7 @@
     <a href="{{ path('lbr_categorie_index') }}"><span class="text-white"><button type="btn" class="btn btn-primary">Retour
                 à la liste</span></button></a>
 
-    <a href="{{ path('lbr_categorie_edit', {'id': categorie.id}) }}"><button type="btn" class="btn btn-warning"><span class="text-white">Editer</span></button></a>
-    <hr>
+    <a href="{{ path('lbr_categorie_edit', {'id': categorie.id}) }}"><button type="btn" class="btn btn-warning my-2"><span class="text-white">Editer</span></button></a>
     
     {{ include('lbr/categorie/_delete_form.html.twig') }}
 
