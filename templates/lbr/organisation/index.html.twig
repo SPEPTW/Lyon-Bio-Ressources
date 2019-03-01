@@ -10,13 +10,13 @@
         <h1>Liste Organisation</h1>
 
 
-    <table class="table table-striped">
-        <thead>
+    <table class="table">
+        <thead class="table-light">
             <tr>
                
                 <th>Nom</th>
                 <th>Description</th>
-                <th>Type</th>
+                <th>Type categorie</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,15 +26,24 @@
             <tr>
               
                 <td>{{ organisation.nom }}</td>
-                <td>{{ organisation.Description }}</td>
-                <td>{{ organisation.Type }}</td>
+                <td>{{ organisation.description }}</td>
+
                 <td>
+                    {% if organisation.categorie %}
+                        {{ organisation.categorie.titre }}
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('lbr_organisation_show', {'id': organisation.id}) }}"><button type="button" class="btn btn-primary"><span
+                        class="text-white">Voir</span></button></a>
+            
+                    <a href="{{ path('lbr_organisation_edit', {'id': organisation.id}) }}"><button type="button" class="btn btn-warning"><span
+                        class="text-white">Editer</span></button></a>
+                </td>
+                
+                
 
-<a href="{{ path('lbr_organisation_show', {'id': organisation.id}) }}"><button type="button" class="btn btn-primary"><span
-            class="text-white">Voir</span></button></a>
 
-<a href="{{ path('lbr_organisation_edit', {'id': organisation.id}) }}"><button type="button" class="btn btn-warning"><span
-            class="text-white">Editer</span></button></a>
                 </td>
             </tr>
         {% else %}

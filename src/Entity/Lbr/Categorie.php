@@ -29,9 +29,15 @@ class Categorie
      */
     private $contacts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Lbr\Organisation", mappedBy="categorie")
+     */
+    private $organisations;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->organisations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,6 +82,37 @@ class Categorie
             // set the owning side to null (unless already changed)
             if ($contact->getIdCategorie() === $this) {
                 $contact->setIdCategorie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Organisation[]
+     */
+    public function getOrganisations(): Collection
+    {
+        return $this->organisations;
+    }
+
+    public function addOrganisation(Organisation $organisation): self
+    {
+        if (!$this->organisations->contains($organisation)) {
+            $this->organisations[] = $organisation;
+            $organisation->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrganisation(Organisation $organisation): self
+    {
+        if ($this->organisations->contains($organisation)) {
+            $this->organisations->removeElement($organisation);
+            // set the owning side to null (unless already changed)
+            if ($organisation->getCategorie() === $this) {
+                $organisation->setCategorie(null);
             }
         }
 

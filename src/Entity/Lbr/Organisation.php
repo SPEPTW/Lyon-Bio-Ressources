@@ -29,14 +29,14 @@ class Organisation
     private $Description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $Type;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Lbr\Contact", mappedBy="organisation")
      */
     private $contacts;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lbr\Categorie", inversedBy="organisations")
+     */
+    private $categorie;
 
     public function __construct()
     {
@@ -72,18 +72,6 @@ class Organisation
         return $this;
     }
 
-    public function getType(): ?int
-    {
-        return $this->Type;
-    }
-
-    public function setType(?int $Type): self
-    {
-        $this->Type = $Type;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Contact[]
      */
@@ -108,6 +96,18 @@ class Organisation
             $this->contacts->removeElement($contact);
             $contact->removeOrganisation($this);
         }
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
