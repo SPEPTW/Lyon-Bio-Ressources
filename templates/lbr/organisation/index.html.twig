@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Organisation index{% endblock %}
+{% block title %}Liste Organisation{% endblock %}
 
 {% block body %}
    
@@ -39,14 +39,14 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune Organisation</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
 <button type="button" class="btn btn-success"><a href="{{ path('lbr_organisation_new') }}"><span class="text-white">Ajouter
-            une nouvelle organisation</a></span></button>
+            une organisation</a></span></button>
     
 {% endblock %}
 
