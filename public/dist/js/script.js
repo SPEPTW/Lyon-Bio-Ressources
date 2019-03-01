@@ -1,4 +1,15 @@
-$(function () {
+
+/* Menu */
+
+$('#menu').on('click', function () {
+    $('.menucontent').slideToggle(1000);
+    $('#menu').toggleClass('open');
+});
+
+
+
+
+/* $(function () {
     var availableTags = [
         "Jean-Luc",
         "Barthelemy",
@@ -23,4 +34,4 @@ $.ui.autocomplete.filter = function (array, term) {
     return $.grep(array, function (value) {
         return matcher.test(value.label || value.value || value);
     });
-};
+}; */
