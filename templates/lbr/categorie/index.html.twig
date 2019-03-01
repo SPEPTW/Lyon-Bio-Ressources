@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Liste Catégorie{% endblock %}
 
 {% block body %}
-    <h1>Categorie index</h1>
+    <h1>Liste Catégorie</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Type_categorie</th>
+                
+                <th>Type de Catégorie</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for categorie in categories %}
             <tr>
-                <td>{{ categorie.id }}</td>
+                
                 <td>{{ categorie.titre }}</td>
                 <td>
                 <a href="{{ path('lbr_categorie_show', {'id': categorie.id}) }}"><button type="button" class="btn btn-primary"><span
@@ -28,12 +28,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune Catégorie</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
 <button type="button" class="btn btn-success"><a href="{{ path('lbr_categorie_new') }}"><span class="text-white">Ajouter
-            une nouvelle Categorie</a></span></button>
+            une Catégorie</a></span></button>
 {% endblock %}
