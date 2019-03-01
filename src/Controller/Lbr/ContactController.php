@@ -20,8 +20,11 @@ class ContactController extends AbstractController
      */
     public function index(ContactRepository $contactRepository): Response
     {
+
+        $contacts = $contactRepository->findAll();
+
         return $this->render('lbr/contact/index.html.twig', [
-            'contacts' => $contactRepository->findAll(),
+            'contacts' => $contacts,
         ]);
     }
 
