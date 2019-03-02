@@ -5,15 +5,55 @@
 {% block body %}
 
 <div class="pb-3">
-    <h1>Bonjour</h1>
+    <h1 class="text-success">Bonjour</h1>
 
     {# Placer {{ app.user.username }} après bonjour #}
     {# Utiliser {{dump(app.user)}} pour afficher les infos de l'utilisateur en dur #}
 </div>
 
 <div class="pb-3">
-    <h2>Statistiques contacts</h2>
+    <h2 class="text-success">Statistiques contacts</h2>
     <div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
 
     </div>
 
@@ -21,7 +61,7 @@
 </div>
 
 <div class="pb-3">
-    <h2>Mes contacts</h2>
+    <h2 class="text-success">Mes contacts</h2>
     <div class="card-deck">
         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
             <div class="card-body">
@@ -76,14 +116,14 @@
 </div>
 
 <div class="pb-3">
-    <h2> Réseaux sociaux</h2>
+    <h2 class="text-success"> Réseaux sociaux</h2>
     <div class="row">
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-light">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -92,7 +132,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-light">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -100,7 +140,7 @@
 </div>
 
 <div class="pb-3 mx-auto">
-    <h2>Les dernières images ajoutées</h2>
+    <h2 class="text-success">Les dernières images ajoutées</h2>
     <div id="lbrcarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
