@@ -2,27 +2,29 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Welp\MailchimpBundle\Event\SubscriberEvent;
 use Welp\MailchimpBundle\Subscriber\Subscriber;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class MailchimpController extends AbstractController
+use App\Entity\User;
+
+
+
+class MailchimpController extends Controller
 {
-    /**
-     * @Route("/mailchimp", name="mailchimp")
-     */
-    public function index()
-    {
-        return $this->render('mailchimp/index.html.twig', [
-            'controller_name' => 'MailchimpController',
-        ]);
+
+    protected $container;
+
+    public function __construct(ContainerInterface $ci) {
+        $this->container = $ci;
     }
 
     public function newUser(User $user)
     {
         $subscriber = new Subscriber($user->getEmail(), [
-            'FIRSTNAME' => $user->getFirstname(),
+            'FIRSTNAME' => $user->getUsername(),
         ], [
             'language' => 'fr'
         ]);
@@ -46,10 +48,10 @@ class MailchimpController extends AbstractController
     public function updateUser(User $user)
     {
         $subscriber = new Subscriber($user->getEmail(), [
-            'FIRSTNAME' => $user->getFirstname(),
-            'LASTNAME' => $user->getFirstname(),
+            'FIRSTNAME' => $user->getUsername(),
         ], [
-            'language' => 'en'
+            'language' => 'fr'
+
         ]);
 
         $this->container->get('event_dispatcher')->dispatch(
