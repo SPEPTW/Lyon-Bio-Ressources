@@ -25,5 +25,12 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    newsletter_subscriber_provider:
+        class: App\Newsletter\NewsletterSubscriberProvider
+        arguments: ['@userRepository']
+
+    mailchimp_controller:
+        class: App\Controller\MailchimpController
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
