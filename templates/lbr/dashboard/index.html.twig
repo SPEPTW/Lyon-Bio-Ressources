@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="pb-3">
-    <h1 class="text-success">Bonjour</h1>
+    <h1 class="text-success">Bonjour{{ app.user.username }}</h1>
 
     {# Placer {{ app.user.username }} après bonjour #}
     {# Utiliser {{dump(app.user)}} pour afficher les infos de l'utilisateur en dur #}
@@ -13,7 +13,7 @@
 
 <div class="pb-3">
     <h2 class="text-success">Statistiques contacts</h2>
-        <div id="piechart"></div>
+        <div class="tabledash" id="piechart"></div>
 </div>
 
 <div class="pb-3">
@@ -58,19 +58,12 @@
 
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title "> <a href="{{ path('lbr_evenement_index') }}"></a>Les 10 derniers contacts modifiés</h5>
+                <h5 class="card-title "><a href="{{ path('lbr_evenement_index') }}"></a>Les 10 derniers contacts modifiés</h5>
                 <p class="card-text">
-                <ul> 
-                <li>Mme Maurice</li>
-                <li>M Dupont</li>
-                <li>G George</li>
-                <li>R Renaurd</li>
-                <li> </li>
+                <ul>
+                    <li><?= $pf['Variable à mettre']?>"><?= $pf['Variable à mettre']?>
+                    </li>
                 </ul>
-                
-                 
-                
-                
                     {# Ajouter la fonction pour afficher le NB #}
                 </p>
             </div>
@@ -83,7 +76,7 @@
 </div>
 
 <div class="pb-3">
-    <h2 class="text-success"> Réseaux sociaux</h2>
+    <h2 class="text-success">Réseaux sociaux</h2>
     <div class="row">
         <div class="col-sm-6">
             <div class="card">
