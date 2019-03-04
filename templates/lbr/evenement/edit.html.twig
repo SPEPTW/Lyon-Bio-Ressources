@@ -5,14 +5,14 @@
 {% block body %}
     
 
-    {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}
+    
                 <h1>Editer Evenement</h1>
 
 
-    {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Savegarder'}) }}
+    {{ include('lbr/evenement/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
     
-    <button type="button" class="btn btn-primary"><a href="{{ path('lbr_evenement_index') }}"><span class="text-light">Retour à la liste</a></button>
+    <button type="button" class="btn btn-primary my-1"><a href="{{ path('lbr_evenement_index') }}"><span class="text-light">Retour à la liste</a></button>
 
     {{ include('lbr/evenement/_delete_form.html.twig') }}
 {% endblock %}

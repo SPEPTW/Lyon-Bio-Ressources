@@ -3,38 +3,31 @@
 {% block title %}Evenement{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 flex-column mt-5">
+
 
                 <h1>Evenement</h1>
 
-            </div>
-        </div>
-    </div>
-</div>
-                <div class="col-6 .d-inline flex">
+<div class="col-6 .d-inline flex">
     <table class="table">
         <tbody>
             
                
-                    <tr>
-                        <th>Nom</th>
-                        <td>{{ evenement.nom }}</td>
-                    </tr>
-                    <tr>
-                        <th>Date</th>
-                        <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Note</th>
-                        <td>{{ evenement.note }}</td>
-                    </tr>
-                    <tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ evenement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ evenement.note }}</td>
+            </tr>
+            <tr>
 
            
-            </div>
+</div>
   
                 <th>Image</th>
                 <div class="col-6 .d- inline-flex"> 
