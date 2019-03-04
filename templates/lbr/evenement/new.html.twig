@@ -3,20 +3,14 @@
 {% block title %}Nouveau Evenement{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 flex-column mt-5">
+
 
                 <h1>Créer un nouvel Evenement</h1>
 
-            </div>
-        </div>
-    </div>
-</div>
+
 
     {{ include('lbr/evenement/_form.html.twig') }}
 
-    <a href= "{{ path('lbr_evenement_index') }}"><button type="button" class="btn btn-secondary"><span class="text-dark"><span class="text-white">Retour à la liste</span></button></a>
+    <a href= "{{ path('lbr_evenement_index') }}"><button type="button" class="btn btn-secondary my-1"><span class="text-dark"><span class="text-white">Retour à la liste</span></button></a>
  
 {% endblock %}

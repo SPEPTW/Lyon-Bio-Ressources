@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class EvenementType extends AbstractType
 {
@@ -14,7 +15,9 @@ class EvenementType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('date')
+            ->add('date', DateTimeType::class, [
+                'widget' => 'single_text'
+            ])
             ->add('note')
             ->add('image', FileType::class, [
                 'mapped' => false,
