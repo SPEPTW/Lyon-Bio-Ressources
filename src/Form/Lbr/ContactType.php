@@ -25,7 +25,7 @@ class ContactType extends AbstractType
             ->add('statut')
             ->add('tel_1')
             ->add('tel_2')
-            ->add('tel_3')
+                ->add('tel_3')
             ->add('categorie', EntityType::class, [
                 'required' => false,
                 'class' => Categorie::class,
@@ -36,6 +36,7 @@ class ContactType extends AbstractType
             ->add('organisation', EntityType::class, [
                 'required' => false,
                 'class' => Organisation::class,
+                'multiple' => true,
                 'choice_label' => function($cat) {
                      return $cat->getNom();
                 }
