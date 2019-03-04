@@ -13,9 +13,7 @@
 
 <div class="pb-3">
     <h2 class="text-success">Statistiques contacts</h2>
-    <div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
+        <div id="piechart"></div>
 </div>
 
 <div class="pb-3">
@@ -58,10 +56,21 @@
             </div>
         </div>
 
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"> <a href="{{ path('lbr_evenement_index') }}"></a>Autre item</h5>
+                <h5 class="card-title "> <a href="{{ path('lbr_evenement_index') }}"></a>Les 10 derniers contacts modifiés</h5>
                 <p class="card-text">
+                <ul> 
+                <li>Mme Maurice</li>
+                <li>M Dupont</li>
+                <li>G George</li>
+                <li>R Renaurd</li>
+                <li> </li>
+                </ul>
+                
+                 
+                
+                
                     {# Ajouter la fonction pour afficher le NB #}
                 </p>
             </div>
