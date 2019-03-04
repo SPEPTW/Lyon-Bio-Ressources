@@ -492,9 +492,6 @@
     "webmozart/assert": {
         "version": "1.4.0"
     },
-    "welp/mailchimp-bundle": {
-        "version": "dev-master"
-    },
     "zendframework/zend-code": {
         "version": "3.3.1"
     },

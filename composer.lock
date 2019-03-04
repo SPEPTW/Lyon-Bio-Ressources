@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "799fec1f94872829fd6d99efc9f734bc",
+    "content-hash": "573ee3230c4861d3467d2205649a1d81",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -5255,57 +5255,6 @@
             "time": "2018-12-25T11:19:39+00:00"
         },
         {
-            "name": "welp/mailchimp-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/welpdev/mailchimp-bundle.git",
-                "reference": "b12e65c208fe47b4cac5d4a4394a0ba649e5fc44"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/welpdev/mailchimp-bundle/zipball/b12e65c208fe47b4cac5d4a4394a0ba649e5fc44",
-                "reference": "b12e65c208fe47b4cac5d4a4394a0ba649e5fc44",
-                "shasum": ""
-            },
-            "require": {
-                "drewm/mailchimp-api": "^2.2",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "~2@dev",
-                "phpunit/phpunit": "~5",
-                "symfony/symfony": ">=2.7"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Welp\\MailchimpBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Titouan BENOIT",
-                    "email": "titouan@welp.today"
-                }
-            ],
-            "description": "MailChimp API V3 Symfony Bundle",
-            "homepage": "https://github.com/welpdev/mailchimp-bundle",
-            "keywords": [
-                "api",
-                "mailchimp",
-                "subscriber",
-                "symfony",
-                "user",
-                "v3"
-            ],
-            "time": "2018-12-05T10:28:40+00:00"
-        },
-        {
             "name": "zendframework/zend-code",
             "version": "3.3.1",
             "source": {
@@ -6354,9 +6303,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "welp/mailchimp-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
