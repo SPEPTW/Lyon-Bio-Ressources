@@ -5,7 +5,7 @@ namespace App\Controller\Lbr;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\MailchimpController;
-
+use DrewM\MailChimp\MailChimp;
 
 class UserController extends AbstractController
 {
@@ -21,13 +21,6 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        dump($this->mc->newUser( $this->getUser() ));
-/* 
-        try{
-        }
-        catch( \Exception $e ) {
-            dump($e->getStatus());
-        } */
 
         return $this->render('lbr/user/index.html.twig', [
             'controller_name' => 'UserController',
