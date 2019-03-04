@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
-use Welp\MailchimpBundle\Event\SubscriberEvent;
-use Welp\MailchimpBundle\Subscriber\Subscriber;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use App\Entity\User;
