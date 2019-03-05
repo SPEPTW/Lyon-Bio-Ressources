@@ -31,6 +31,13 @@
                 </a>
             </li>
 
+            <li class="nav-item mt-3">
+                <a class="nav-link active text-success" href="{{ path('lbr_user_index') }}">
+                    <span data-feather="coffee"></span>
+                    Utilisateurs
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav> 
