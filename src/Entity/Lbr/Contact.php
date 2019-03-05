@@ -107,6 +107,11 @@ class Contact
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $note;
+
     public function __construct()
     {
         $this->organisation = new ArrayCollection();
@@ -318,6 +323,18 @@ class Contact
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

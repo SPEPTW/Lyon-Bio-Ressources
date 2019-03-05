@@ -18,16 +18,16 @@ class PagesController extends AbstractController
      * @Route("/lbr/dashboard", name="dashboard")
      */
 
-    public function dashboard(
+    public function dashboard (
         CategorieRepository $categorieRepository,
         ContactRepository $contactRepository,
         OrganisationRepository $organisationRepository,
         EvenementRepository $evenementRepository): Response {
 
-            $nbCategories = count($categorieRepository->findAll());
-            $nbContacts = count($contactRepository->findAll());
-            $nbOrganisations = count($organisationRepository->findAll());
-            $nbEvenements = count($evenementRepository->findAll());
+            $nbCategories   = count($categorieRepository->findAll());
+            $nbContacts     = count($contactRepository->findAll());
+            $nbOrganisations= count($organisationRepository->findAll());
+            $nbEvenements   = count($evenementRepository->findAll());
 
             $nbContactsEnAttente = $contactRepository->findAwait();
             dump($nbContactsEnAttente);
@@ -41,12 +41,13 @@ class PagesController extends AbstractController
                 'controller_name' => 'PagesController',
                 compact(
                     'nbCategories',
+                    'nbCategories',
                     'nbContacts',
                     'nbOrganisations',
                     'nbEvenements',
                     'nbContactsEnAttente',
                     'troisProchainsEvents',
-                    'dixDerniersContactsModif',
+                    'dixDerniersContactsModif'
                 )
             ]);
     }

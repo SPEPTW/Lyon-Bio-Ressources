@@ -22,8 +22,15 @@ class ContactRepository extends ServiceEntityRepository
     public function findAwait() {
 
         return $this->createQueryBuilder('c')
+            ->where('c.nom is null')
+
+            ->orWhere('c.email is null')
+            ->andWhere('c.tel_1 is null')
+
             ->orWhere('c.categorie is null')
-            ->orderBy('c.id', 'ASC')
+            ->andWhere('c.note is null')
+
+            ->orderBy('c.created_at', 'DESC')
             ->getQuery()
             ->getResult()
         ;
