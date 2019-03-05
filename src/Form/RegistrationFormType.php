@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -20,9 +21,15 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Nom d\'utilisateur ',
                 'required' => true,
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class, 
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'Mot de Passe'],
+                'second_options' => ['label' => 'Confirmer votre Mot de Passe'],
                 'mapped' => false,
                 'required' => true,
                 'label' => 'Mot de passe ',
