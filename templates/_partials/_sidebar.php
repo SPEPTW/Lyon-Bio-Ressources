@@ -30,6 +30,7 @@
                     Catégories
                 </a>
             </li>
+            
             {% if is_granted('ROLE_ADMIN') == true %}
 
             <li class="nav-item mt-3">
@@ -38,7 +39,7 @@
                     Utilisateurs
                 </a>
             </li>
-            
+
             {% endif %}
 
 
