@@ -30,6 +30,19 @@ class ContactController extends AbstractController
     }
 
     /**
+     * @Route("/valider", name="lbr_contact_valider", methods={"GET"})
+     */
+    public function indexContactsNonValides(ContactRepository $contactRepository): Response
+    {
+
+        $contacts = $contactRepository->findAwait();
+
+        return $this->render('lbr/contact/index.html.twig', [
+            'contacts' => $contacts,
+        ]);
+    }
+
+    /**
      * @Route("/new", name="lbr_contact_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
