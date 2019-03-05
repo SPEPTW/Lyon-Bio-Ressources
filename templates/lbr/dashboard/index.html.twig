@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lyon Bio Ressources{% endblock %}
+
+{% block body %}
+
+<div class="pb-3">
+    <h1 class="text-success">Bonjour{{ app.user.username }}</h1>
+
+    {# Placer {{ app.user.username }} après bonjour #}
+    {# Utiliser {{dump(app.user)}} pour afficher les infos de l'utilisateur en dur #}
+</div>
+
+<div class="pb-3">
+    <h2 class="text-success">Statistiques contacts</h2>
+        <div class="tabledash" id="piechart"></div>
+</div>
+
+<div class="pb-3">
+    <h2 class="text-success">Mes contacts</h2>
+    <div class="card-deck">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">NB de fiches de Contacts validés</h5>
+                <p class="card-text">Nb de contacts valides
+                    {# Ajouter la fonction pour afficher le NB #}
+                </p>
+            </div>
+            <div class="card-footer">
+
+                <a class="nav-link active text-white" href="{{ path('lbr_contact_index') }}">Voir la liste</a>
+            </div>
+        </div>
+
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">NB de fiches de contacts en attentes de modifications</h5>
+                <p class="card-text">Nb de contact enregistrés mais dont les informations essentielles sont à
+                    compléter.
+                    {# Ajouter la fonction pour afficher le NB #}
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="nav-link active text-white" href="{{ path('lbr_contact_index') }}">Voir la liste</a>
+            </div>
+        </div>
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> <a href="{{ path('lbr_evenement_index') }}"></a>Evenement à venir</h5>
+                <p class="card-text">
+                    {# Ajouter la fonction pour afficher le NB #}
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="nav-link active text-white" href="{{ path('lbr_evenement_index') }}">Voir la liste</a>
+            </div>
+        </div>
+
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title "><a href="{{ path('lbr_evenement_index') }}"></a>Les 10 derniers contacts modifiés</h5>
+                <p class="card-text">
+                <ul>
+                    <li><?= $pf['Variable à mettre']?>"><?= $pf['Variable à mettre']?>
+                    </li>
+                </ul>
+                    {# Ajouter la fonction pour afficher le NB #}
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="nav-link active text-white" href="{{ path('lbr_evenement_index') }}">Voir la liste</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pb-3">
+    <h2 class="text-success">Réseaux sociaux</h2>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-light">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-light">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pb-3 mx-auto">
+    <h2 class="text-success">Les dernières images ajoutées</h2>
+    <div id="lbrcarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="img-responsive w-100" src="{{asset(evenement.image)}}">
+            </div>
+            <div class="carousel-item">
+                <img class="img-responsive w-100" src="{{asset(evenement.image)}}">
+            </div>
+            <div class="carousel-item">
+                <img class="img-responsive w-100" src="{{asset(evenement.image)}}">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
