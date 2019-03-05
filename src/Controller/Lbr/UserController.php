@@ -13,7 +13,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use App\Security\FormAuthenticator;
 use App\Form\RegistrationFormType;
-use App\Controller\MailchimpController;
 use DrewM\MailChimp\MailChimp;
 
 /**
@@ -22,19 +21,13 @@ use DrewM\MailChimp\MailChimp;
 class UserController extends AbstractController
 {
 
-
-    private $mc;
-
-    public function __construct(MailchimpController $mc) {
-        $this->mc = $mc;
-    }
     /**
      * @Route("/", name="lbr_user_index")
      */
     public function index(UserRepository $userRepository)
     {
         return $this->render('lbr/user/index.html.twig', [
-            'users' => $users
+            'users' => $userRepository->findAll()
         ]);
     }
 
