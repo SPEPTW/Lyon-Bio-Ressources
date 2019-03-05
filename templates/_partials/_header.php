@@ -9,7 +9,7 @@
                     <img src="{{ asset('dist/img/menu.png') }}" alt="Menu" />
                 </li>
                 <li class="nav-item text-nowrap ">
-                    <a class="nav-link text-muted" href="{{ path('logout')}}">Se déconnecter</a>
+                    <a class="nav-link text-muted" href="{{ path('logout')}}"><span data-feather="log-out"></span> Se déconnecter</a>
                 </li>
 
             </ul>
