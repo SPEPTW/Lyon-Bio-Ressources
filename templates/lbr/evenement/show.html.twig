@@ -3,18 +3,11 @@
 {% block title %}Evenement{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 flex-column mt-5">
+
 
                 <h1>Evenement</h1>
 
-            </div>
-        </div>
-    </div>
-</div>
-                <div class="col-6 .d-inline flex">
+<div class="col-6 .d-inline flex">
     <table class="table">
         <tbody>
             
@@ -34,11 +27,11 @@
                     <tr>
 
            
-            </div>
+</div>
   
                 <th>Image</th>
                 <div class="col-6 .d- inline-flex"> 
-                <td><img class="img-responsive w-50" src="{{asset(evenement.image)}}"></td>
+                <td><img class="img-responsive w-50" src="{{ asset('images/evenements/') }}{{ evenement.image }}"></td>
             </tr>
 
            

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use DrewM\MailChimp\MailChimp;
 
 /**
  * @Route("/lbr/contact")
@@ -38,9 +39,67 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
+
+            /**
+             * Ajout à la liste de diffusion
+             */
+
+            $mailchimp = new MailChimp( getenv('MAILCHIMP_API_KEY') );
+
+            $mcLists = $mailchimp->get('lists'); // Listes Mailchimp
+            $search = $contact->getCategorie()->getTitre(); // Recherche par titre de catégorie
+
+            foreach( $mcLists['lists'] as $list) {
+                if (stripos(strtolower($search), strtolower($list['name'])) !== false) {
+                    $listId = $list['id'];
+                    $result = $mailchimp->post("lists/$listId/members", [
+                        'email_address' => $contact->getEmail(),
+                        'status'        => 'subscribed',
+                ]);
+                    break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                }
+            }
+
+            /**
+             * Ajout aux listes presse et newsletter
+             */
+
+            if ($request->get('newsletter_send')){
+
+                foreach( $mcLists['lists']  as $list) {
+                     if (stripos(strtolower('newsletter'), strtolower($list['name'])) !== false) {
+                        $listId = $list['id'];
+                        $result = $mailchimp->post("lists/$listId/members", [
+                            'email_address' => $contact->getEmail(),
+                            'status'        => 'subscribed',
+                        ]);
+
+                        $contact->setNewsletterSend(true);
+                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    }
+                }
+            }
+
+            if ($request->get('presse_send')){
+
+                 foreach( $mcLists['lists'] as $list) {
+                    if (stripos(strtolower('presse'), strtolower($list['name'])) !== false) {
+                        $listId = $list['id'];
+                        $result = $mailchimp->post("lists/$listId/members", [
+                            'email_address' =>  $contact->getEmail(),
+                            'status'        => 'subscribed',
+                        ]);
+
+                        $contact->setPresseSend(true);
+
+                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    }
+                }
+            }
 
             return $this->redirectToRoute('lbr_contact_index');
         }

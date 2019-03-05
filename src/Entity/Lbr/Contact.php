@@ -5,9 +5,11 @@ namespace App\Entity\Lbr;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Lbr\ContactRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Contact
 {
@@ -20,31 +22,40 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length(min=2, max=50)
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(max=50)
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=150, nullable=true)
+     * @Assert\Email(
+     * message = "L'Email'{{ value }}' n'ai pas une adresse mail valide.")
+     * 
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
+     * 
      */
     private $rue;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $ville;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Regex("/^[0-9]{5}$/")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $code_postale;
 
@@ -69,23 +80,52 @@ class Contact
     private $evenement;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Regex("/^[0-9]{10}$/")
      */
     private $tel_1;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Regex("/^[0-9]{10}$/")
      */
     private $tel_2;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Regex("/^[0-9]{10}$/")
      */
     private $tel_3;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $note;
 
     public function __construct()
     {
         $this->organisation = new ArrayCollection();
+        $this->setCreatedAt( new \DateTime('now') );
+    }
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function onUpdate()
+    {
+        $this->setUpdatedAt( new \DateTime('now') );
     }
 
     public function getId(): ?int
@@ -153,12 +193,12 @@ class Contact
         return $this;
     }
 
-    public function getCodePostale(): ?int
+    public function getCodePostale(): ?string
     {
         return $this->code_postale;
     }
 
-    public function setCodePostale(?int $code_postale): self
+    public function setCodePostale(?string $code_postale): self
     {
         $this->code_postale = $code_postale;
 
@@ -227,38 +267,74 @@ class Contact
         return $this;
     }
 
-    public function getTel1(): ?int
+    public function getTel1(): ?string
     {
         return $this->tel_1;
     }
 
-    public function setTel1(?int $tel_1): self
+    public function setTel1(?string $tel_1): self
     {
         $this->tel_1 = $tel_1;
 
         return $this;
     }
 
-    public function getTel2(): ?int
+    public function getTel2(): ?string
     {
         return $this->tel_2;
     }
 
-    public function setTel2(?int $tel_2): self
+    public function setTel2(?string $tel_2): self
     {
         $this->tel_2 = $tel_2;
 
         return $this;
     }
 
-    public function getTel3(): ?int
+    public function getTel3(): ?string
     {
         return $this->tel_3;
     }
 
-    public function setTel3(?int $tel_3): self
+    public function setTel3(?string $tel_3): self
     {
         $this->tel_3 = $tel_3;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

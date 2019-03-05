@@ -26,8 +26,7 @@
             <tr>
               
                 <td>{{ organisation.nom }}</td>
-                <td>{{ organisation.description }}</td>
-
+                <td>{{ organisation.Description|length > 50 ? organisation.Description|slice(0, 50) ~ '...' : organisation.Description  }}</td>
                 <td>
                     {% if organisation.categorie %}
                         {{ organisation.categorie.titre }}
