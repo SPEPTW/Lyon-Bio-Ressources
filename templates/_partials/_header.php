@@ -1,7 +1,7 @@
 <header>
     <nav class=" navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
 
-        <img alt="logo" class="navbar-brand col-sm-3 col-md-2 mr-0" src="{{ asset('dist/img/logo.jpg') }}" />
+        <a class="nav-link text-muted" href="{{ path('dashboard')}}"><img alt="logo" class="navbar-brand col-sm-3 col-md-2 mr-0" src="{{ asset('dist/img/logo.jpg') }}" /></a>
 
         <div>
             <ul class=" navbar-nav px-3">

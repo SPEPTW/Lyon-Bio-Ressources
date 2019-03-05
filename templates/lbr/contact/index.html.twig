@@ -21,7 +21,7 @@
         <tr>
             <th>Organisation</th>
             <th>Nom</th>
-            <th>Prenom</th>
+            <th>Prénom</th>
             <th>Téléphone</th>
             <th>Email</th>
             <th>Ville</th>
@@ -46,11 +46,11 @@
 
 </td>
 
-            <td>{{ contact.nom }}</td>
-            <td>{{ contact.prenom }}</td>
-            <td>{{ contact.tel1 }}</td>
-            <td>{{ contact.email }}</td>
-            <td>{{ contact.ville }}</td>
+            <td>{{ contact.Nom|length > 8 ? contact.Nom|slice(0, 8) ~ '...' : contact.Nom }}</td>
+            <td>{{ contact.Prenom|length > 8 ? contact.Prenom|slice(0, 8) ~ '...' : contact.Prenom }}</td>
+            <td>{{ contact.Tel1|length > 8 ? contact.Tel1|slice(0, 8) ~ '...' : contact.Tel1 }}</td>
+            <td>{{ contact.Email|length > 8 ? contact.Email|slice(0, 8) ~ '...' : contact.Email }}</td>
+            <td>{{ contact.Ville|length > 8 ? contact.Ville|slice(0, 8) ~ '...' : contact.Ville }}</td>
             <td>{{ contact.statut ? 'Yes' : 'No' }}</td>
 
 
