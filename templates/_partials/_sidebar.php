@@ -30,6 +30,18 @@
                     Catégories
                 </a>
             </li>
+            
+            {% if is_granted('ROLE_ADMIN') == true %}
+
+            <li class="nav-item mt-3">
+                <a class="nav-link active text-success" href="{{ path('lbr_user_index') }}">
+                    <span data-feather="coffee"></span>
+                    Utilisateurs
+                </a>
+            </li>
+
+            {% endif %}
+
 
         </ul>
     </div>
