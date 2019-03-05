@@ -5,19 +5,17 @@
 {% block body %}
 
 <div class="pb-3">
-    <h1 class="text-success">Bonjour{{ app.user.username }}</h1>
-
-    {# Placer {{ app.user.username }} après bonjour #}
+    <h1 class="text-success">Bonjour</h1>
     {# Utiliser {{dump(app.user)}} pour afficher les infos de l'utilisateur en dur #}
 </div>
-
+{# 
 <div class="pb-3">
     <h2 class="text-success">Statistiques contacts</h2>
         <div class="tabledash" id="piechart"></div>
-</div>
+</div> #}
 
 <div class="pb-3">
-    <h2 class="text-success">Mes contacts</h2>
+    <h2 class="text-success pb-2">Informations sur les contacts et les évenements</h2>
     <div class="card-deck">
         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
             <div class="card-body">
@@ -76,45 +74,27 @@
 </div>
 
 <div class="pb-3">
-    <h2 class="text-success">Réseaux sociaux</h2>
+    <h2 class="text-success pb-2">Réseaux sociaux</h2>
     <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-light">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-light">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
+  
+            <div class="fb-page data-adapt-container-width" data-href="https://www.facebook.com/lyonbioressources/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/lyonbioressources/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lyonbioressources/">Lyon Bio Ressources</a></blockquote></div>
 </div>
-
-<div class="pb-3 mx-auto">
-    <h2 class="text-success">Les dernières images ajoutées</h2>
-    <div id="lbrcarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
+<div class="pb-3">
+    <h2 class="text-success p-2">Les dernières images ajoutées</h2>
+    <div class="row">
+            <div id="lbrcarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
                 <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/b2a027348b094c37d3e1c5b588b07e27.jpeg') }}"alt="slide 1"></a>
-            </div>
-            <div class="carousel-item">
+                </div>
+                <div class="carousel-item active">
                 <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/d31a8e4194368592bc209ddbfd35588c.jpeg') }}"alt"slide 2"></a>
-            </div>
-            <div class="carousel-item">
+                </div>
+                <div class="carousel-item active">
                 <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/e471924d91d35361bdf4890cc7aa8be6.jpeg') }}"alt="slide 3"></a>
+                </div>
             </div>
-        </div>
-    </div>
-
+            </div>
 </div>
 
 </div>
