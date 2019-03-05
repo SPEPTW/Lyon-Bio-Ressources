@@ -182,3 +182,8 @@ img {
     }
 
 }
+
+/* Dimension tableau chart dashbaord */
+.tabledash {
+    width: 900px;
+}
