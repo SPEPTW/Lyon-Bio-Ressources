@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Lbr\ContactRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Contact
 {
@@ -96,9 +97,30 @@ class Contact
      */
     private $tel_3;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
     public function __construct()
     {
         $this->organisation = new ArrayCollection();
+        $this->setCreatedAt( new \DateTime('now') );
+    }
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function onUpdate()
+    {
+        $this->setUpdatedAt( new \DateTime('now') );
     }
 
     public function getId(): ?int
@@ -272,6 +294,30 @@ class Contact
     public function setTel3(?string $tel_3): self
     {
         $this->tel_3 = $tel_3;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

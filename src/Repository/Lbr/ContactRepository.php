@@ -19,6 +19,28 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
+    public function findAwait() {
+
+        return $this->createQueryBuilder('c')
+            ->orWhere('c.categorie is null')
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+    public function findLastTenUpdates() {
+
+        return $this->createQueryBuilder('c')
+            ->where( 'c.updated_at is not null')
+            ->orderBy('c.updated_at', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+
+    } 
     // /**
     //  * @return Contact[] Returns an array of Contact objects
     //  */
