@@ -180,3 +180,11 @@ img {
     }
 
 }
+
+body .popover   {
+    display: none !important;
+}
+
+body .ui-helper-hidden-accessible {
+    display: none !important;
+}
