@@ -62,20 +62,23 @@ class ContactController extends AbstractController
              */
 
             $mailchimp = new MailChimp( getenv('MAILCHIMP_API_KEY') );
-
             $mcLists = $mailchimp->get('lists'); // Listes Mailchimp
+
             $search = $contact->getCategorie()->getTitre(); // Recherche par titre de catégorie
 
-            foreach( $mcLists['lists'] as $list) {
-                if (stripos(strtolower($search), strtolower($list['name'])) !== false) {
-                    $listId = $list['id'];
-                    $result = $mailchimp->post("lists/$listId/members", [
-                        'email_address' => $contact->getEmail(),
-                        'status'        => 'subscribed',
-                ]);
-                    break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+            if ($mcLists) {
+                foreach( $mcLists['lists'] as $list) {
+                    if (stripos(strtolower($search), strtolower($list['name'])) !== false) {
+                        $listId = $list['id'];
+                        $result = $mailchimp->post("lists/$listId/members", [
+                            'email_address' => $contact->getEmail(),
+                            'status'        => 'subscribed',
+                    ]);
+                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    }
                 }
             }
+            
 
             /**
              * Ajout aux listes presse et newsletter
@@ -83,33 +86,39 @@ class ContactController extends AbstractController
 
             if ($request->get('newsletter_send')){
 
-                foreach( $mcLists['lists']  as $list) {
-                     if (stripos(strtolower('newsletter'), strtolower($list['name'])) !== false) {
-                        $listId = $list['id'];
-                        $result = $mailchimp->post("lists/$listId/members", [
-                            'email_address' => $contact->getEmail(),
-                            'status'        => 'subscribed',
-                        ]);
+                if ($mcLists) {
 
-                        $contact->setNewsletterSend(true);
-                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    foreach( $mcLists['lists']  as $list) {
+                        if (stripos(strtolower('newsletter'), strtolower($list['name'])) !== false) {
+                            $listId = $list['id'];
+                            $result = $mailchimp->post("lists/$listId/members", [
+                                'email_address' => $contact->getEmail(),
+                                'status'        => 'subscribed',
+                                ]);
+                                
+                                $contact->setNewsletterSend(true);
+                                break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                        }
                     }
                 }
             }
 
             if ($request->get('presse_send')){
 
-                 foreach( $mcLists['lists'] as $list) {
-                    if (stripos(strtolower('presse'), strtolower($list['name'])) !== false) {
-                        $listId = $list['id'];
-                        $result = $mailchimp->post("lists/$listId/members", [
-                            'email_address' =>  $contact->getEmail(),
-                            'status'        => 'subscribed',
-                        ]);
+                if ($mcLists) {
 
-                        $contact->setPresseSend(true);
-
-                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    foreach( $mcLists['lists'] as $list) {
+                        if (stripos(strtolower('presse'), strtolower($list['name'])) !== false) {
+                            $listId = $list['id'];
+                            $result = $mailchimp->post("lists/$listId/members", [
+                                'email_address' =>  $contact->getEmail(),
+                                'status'        => 'subscribed',
+                                ]);
+                                
+                                $contact->setPresseSend(true);
+                                
+                                break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                        }
                     }
                 }
             }
@@ -143,6 +152,72 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            /**
+             * Ajout à la liste de diffusion
+             */
+
+            $mailchimp = new MailChimp(getenv('MAILCHIMP_API_KEY'));
+            $mcLists = $mailchimp->get('lists'); // Listes Mailchimp
+
+            $search = $contact->getCategorie()->getTitre(); // Recherche par titre de catégorie
+
+            if ($mcLists) {
+                foreach($mcLists['lists'] as $list) {
+                    if (stripos(strtolower($search), strtolower($list['name'])) !== false) {
+                        $listId = $list['id'];
+                        $result = $mailchimp->post("lists/$listId/members", [
+                            'email_address' => $contact->getEmail(),
+                            'status'        => 'subscribed',
+                        ]);
+                        break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                    }
+                }
+            }
+            
+
+            /**
+             * Ajout aux listes presse et newsletter
+             */
+
+            if ($request->get('newsletter_send')){
+
+                if ($mcLists) {
+                    foreach($mcLists['lists'] as $list) {
+                        if (stripos(strtolower('newsletter'), strtolower($list['name'])) !== false) {
+                            $listId = $list['id'];
+                            $result = $mailchimp->post("lists/$listId/members", [
+                                'email_address' => $contact->getEmail(),
+                                'status'        => 'subscribed',
+                            ]);
+
+                            $contact->setNewsletterSend(true);
+                            break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                        }
+                    }
+                }
+
+            }
+
+            if ($request->get('presse_send')){
+
+                if ($mcLists) {
+                    foreach($mcLists['lists'] as $list) {
+                        if (stripos(strtolower('presse'), strtolower($list['name'])) !== false) {
+                            $listId = $list['id'];
+                            $result = $mailchimp->post("lists/$listId/members", [
+                                'email_address' =>  $contact->getEmail(),
+                                'status'        => 'subscribed',
+                            ]);
+
+                            $contact->setPresseSend(true);
+
+                            break; // On break pour n'avoir que le premier match si plusieurs résultats correspondaient
+                        }
+                    }
+                }
+                 
+            }
 
             return $this->redirectToRoute('lbr_contact_index', [
                 'id' => $contact->getId(),

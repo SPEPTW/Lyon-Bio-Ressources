@@ -16,6 +16,7 @@ class PagesController extends AbstractController
     /**
      * @IsGranted("ROLE_USER")
      * @Route("/lbr/dashboard", name="dashboard")
+     * @Route("/", name="dashboard")
      */
 
     public function dashboard (
