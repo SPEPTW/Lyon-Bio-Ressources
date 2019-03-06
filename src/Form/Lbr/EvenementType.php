@@ -21,7 +21,8 @@ class EvenementType extends AbstractType
             ->add('note')
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'label'  => 'Ajouter une photo'
+                'label'  => 'Ajouter une photo',
+                'required' => false
             ])
         ;
     }
