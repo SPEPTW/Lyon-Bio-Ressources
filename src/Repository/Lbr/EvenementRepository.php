@@ -23,7 +23,7 @@ class EvenementRepository extends ServiceEntityRepository
         return $this ->createQueryBuilder('e')
         ->where('e.date is not null ')
         ->orderBy('e.date', 'DESC')
-        ->setMaxResult(3)
+        ->setMaxResults(3)
         ->getQuery()
         ->getResult()
         ;

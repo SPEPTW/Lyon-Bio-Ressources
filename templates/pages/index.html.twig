@@ -23,9 +23,9 @@
                 <p class="card-text">Nb de contacts valides
                     {# Ajouter la fonction pour afficher le NB #}
                 <ul>
-                    {% for nbContacts in PagesController %}
+                    {# {% for nbContacts in PagesController %}
                     <li>{{ contact.nom }}</li>
-                    {% endfor %}
+                    {% endfor %} #}
                 </ul>
                 </p>    
             
@@ -43,9 +43,9 @@
                     compléter.
                 </p>
                     <ul>
-                        {% for contact in nbContactsEnAttente %}
+                        {# {% for contact in nbContactsEnAttente %}
                         <li>{{ contact.nom}}</li>
-                        {% endfor %}
+                        {% endfor %} #}
                     </ul>
                     {# Ajouter la fonction pour afficher le NB #}
                 
@@ -71,10 +71,10 @@
                 <h5 class="card-title "><a href="{{ path('lbr_evenement_index') }}"></a>Les 10 derniers contacts modifiés</h5>
                 <p class="card-text">
                 <ul>
-                {% for contact in nbcontact %}
+                {# {% for contact in nbcontact %}
                     <li> {{contact.nom}} </li>
                 </ul>
-                {% endfor %}
+                {% endfor %} #}
                     {# Ajouter la fonction pour afficher le NB #}
                 </p>
             </div>

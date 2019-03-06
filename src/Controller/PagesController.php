@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PagesController extends AbstractController
 {
     /**
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/lbr/dashboard", name="dashboard")
      */
 
@@ -35,7 +35,8 @@ class PagesController extends AbstractController
             $dixDerniersContactsModif = $contactRepository->findLastTenUpdates();
             dump($dixDerniersContactsModif);
 
-            $troisProchainsEvents = '$evenementRepository->findNextThree()';
+            $troisProchainsEvents = $evenementRepository->findNextThree();
+            dump($evenementRepository);
             
             return $this->render('pages/index.html.twig', [
                 'controller_name' => 'PagesController',
