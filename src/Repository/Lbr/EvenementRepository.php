@@ -19,6 +19,15 @@ class EvenementRepository extends ServiceEntityRepository
         parent::__construct($registry, Evenement::class);
     }
 
+    public function findNextThree() {
+        return $this ->createQueryBuilder('e')
+        ->where('e.date is not null ')
+        ->orderBy('e.date', 'DESC')
+        ->setMaxResult(3)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
     // /**
     //  * @return Evenement[] Returns an array of Evenement objects
     //  */
