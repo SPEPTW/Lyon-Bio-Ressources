@@ -10,7 +10,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Lbr\EvenementRepository")
- * @UniqueEntity("nom")
  */
 class Evenement
 {
@@ -38,7 +37,8 @@ class Evenement
     private $note;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="file", nullable=true)
+     * 
      */
     private $image;
 
