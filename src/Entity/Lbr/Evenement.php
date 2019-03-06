@@ -37,7 +37,7 @@ class Evenement
     private $note;
 
     /**
-     * @ORM\Column(type="file", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      * 
      */
     private $image;
