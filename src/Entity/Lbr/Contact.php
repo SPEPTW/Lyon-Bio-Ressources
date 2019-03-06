@@ -112,6 +112,16 @@ class Contact
      */
     private $note;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $presse_send;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $newsletter_send;
+
     public function __construct()
     {
         $this->organisation = new ArrayCollection();
@@ -335,6 +345,30 @@ class Contact
     public function setNote(?string $note): self
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getPresseSend(): ?bool
+    {
+        return $this->presse_send;
+    }
+
+    public function setPresseSend(?bool $presse_send): self
+    {
+        $this->presse_send = $presse_send;
+
+        return $this;
+    }
+
+    public function getNewsletterSend(): ?bool
+    {
+        return $this->newsletter_send;
+    }
+
+    public function setNewsletterSend(?bool $newsletter_send): self
+    {
+        $this->newsletter_send = $newsletter_send;
 
         return $this;
     }
