@@ -14,7 +14,7 @@
         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ nbContacts }} contacts</h5>
-                <p class="card-text"><em>5 derniers contacts enregistrés:</em>
+                <p class="card-text"><em>5 derniers contacts enregistrés :</em>
                     {# Ajouter la fonction pour afficher le NB #}
                     <ul>
                         {% for contact in cinqDerniersContacts %}
@@ -33,8 +33,8 @@
         <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ nbContactsEnAttente }} de fiches de contacts en attentes de modifications</h5>
-                <p class="card-text">Nb de contact enregistrés mais dont les informations essentielles sont à
-                    compléter.
+                <p class="card-text">Informations essentielles à
+                    compléter
 
                     <ul>
                         {% for contact in cinqContactsAValider %}
@@ -94,23 +94,7 @@
   
             <div class="fb-page data-adapt-container-width" data-href="https://www.facebook.com/lyonbioressources/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/lyonbioressources/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lyonbioressources/">Lyon Bio Ressources</a></blockquote></div>
 </div>
-<div class="pb-3">
-    <h2 class="text-success p-2">Les dernières images ajoutées</h2>
-    <div class="row">
-            <div id="lbrcarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/b2a027348b094c37d3e1c5b588b07e27.jpeg') }}"alt="slide 1"></a>
-                </div>
-                <div class="carousel-item active">
-                <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/d31a8e4194368592bc209ddbfd35588c.jpeg') }}"alt"slide 2"></a>
-                </div>
-                <div class="carousel-item active">
-                <a href="{{ path('lbr_evenement_index')}}"><img class="img-responsive w-100" src="{{ asset('images/evenements/e471924d91d35361bdf4890cc7aa8be6.jpeg') }}"alt="slide 3"></a>
-                </div>
-            </div>
-            </div>
-</div>
+
 
 </div>
 
