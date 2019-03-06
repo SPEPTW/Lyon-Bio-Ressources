@@ -14,8 +14,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PagesController extends AbstractController
 {
     /**
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/lbr/dashboard", name="dashboard")
+     * @Route("/", name="dashboard")
      */
 
     public function dashboard (
@@ -24,31 +25,33 @@ class PagesController extends AbstractController
         OrganisationRepository $organisationRepository,
         EvenementRepository $evenementRepository): Response {
 
+            $allContacts = $contactRepository->findAll();
+            $nbContacts     = count( $allContacts );
+            $cinqDerniersContacts = array_slice( $allContacts, 0, 5 );
+            
             $nbCategories   = count($categorieRepository->findAll());
-            $nbContacts     = count($contactRepository->findAll());
             $nbOrganisations= count($organisationRepository->findAll());
             $nbEvenements   = count($evenementRepository->findAll());
 
-            $nbContactsEnAttente = $contactRepository->findAwait();
-            dump($nbContactsEnAttente);
+            $nbContactsEnAttente = count( $contactRepository->findAwait() );
+
+            $cinqContactsAValider = array_slice( $contactRepository->findAwait(), 0, 5);
 
             $dixDerniersContactsModif = $contactRepository->findLastTenUpdates();
-            dump($dixDerniersContactsModif);
 
-            $troisProchainsEvents = '$evenementRepository->findNextThree()';
+            $cinqProchainsEvents = $evenementRepository->findNextFive();
             
-            return $this->render('pages/index.html.twig', [
-                'controller_name' => 'PagesController',
+            return $this->render('pages/index.html.twig', 
                 compact(
                     'nbCategories',
-                    'nbCategories',
                     'nbContacts',
+                    'cinqDerniersContacts',
                     'nbOrganisations',
                     'nbEvenements',
                     'nbContactsEnAttente',
-                    'troisProchainsEvents',
-                    'dixDerniersContactsModif'
-                )
-            ]);
+                    'cinqProchainsEvents',
+                    'dixDerniersContactsModif',
+                    'cinqContactsAValider'
+            ));
     }
 }

@@ -17,8 +17,23 @@
 <!-- jQueryUI -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<!-- flux facebook -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'your-app-id',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+    
 <!--   Javascript -->
 <script src={{ asset('dist/js/script.js') }}></script>
+
+
 </body>
 
 </html> 
